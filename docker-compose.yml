@@ -1,14 +1,19 @@
+
 services:
-  backend:
-    image: backend:latest
+  backend-auth:
+    image: backend-auth:latest
     container_name: backend-auth
-    ports:
-      - "8083:8083"
-    
+    networks:
+      - impact-wb
 
   frontend:
     image: frontend:latest
     container_name: frontend
-    ports:
-      - "8084:8084"
+    networks:
+      - impact-wb
+
+networks:
+  impact-wb:
+    external: true
+
     
