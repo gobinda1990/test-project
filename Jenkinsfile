@@ -39,14 +39,14 @@ pipeline {
                     sh '''
                     echo "Waiting for backend to start..."
                     for i in {1..20}; do
-                        if curl -s -f http://localhost:8083/actuator/health; then
+                        if curl -s -f http://10.153.43.8:8083/api/actuator/health; then
                             echo "Backend is up!"
                             break
                         fi
                         echo "Waiting..."
                         sleep 5
                     done
-                    curl -f http://localhost:8083/auth/login || (echo "Health check failed!" && exit 1)
+                    curl -f http://10.153.43.8:8083/api/auth/login || (echo "Health check failed!" && exit 1)
                     '''
                 }
             }
