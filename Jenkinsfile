@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    docker build -t ${IMAGE_BACKEND} ./backend
+                    docker build -t ${IMAGE_BACKEND} ./backend-auth
                     docker build -t ${IMAGE_FRONTEND} ./frontend
                     """
                 }
