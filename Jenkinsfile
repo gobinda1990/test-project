@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_BACKEND = "backend:latest"
+        IMAGE_BACKEND = "backend-auth:latest"
         IMAGE_FRONTEND = "frontend:latest"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/gobinda1990/sign-in.git'
+                git branch: 'master', url: 'https://github.com/gobinda1990/test-project.git'
             }
         }
 
