@@ -1,19 +1,22 @@
 
+version: "3.9"
+
 services:
   backend-auth:
-    image: backend-auth:latest
+    build: ./backend
     container_name: backend-auth
     networks:
-      - impact-wb
+      - impact-web
 
   frontend:
-    image: frontend:latest
+    build: ./frontend
     container_name: frontend
     networks:
-      - impact-wb
+      - impact-web
 
 networks:
-  impact-wb:
+  impact-web:
     external: true
+
 
     
