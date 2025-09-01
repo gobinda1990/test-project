@@ -53,7 +53,7 @@ pipeline {
                         echo "Waiting..."
                         sleep 5
                     done
-                    curl -f http://backend-auth:8083/api/auth/login || (echo "Backend health check failed!" && exit 1)
+                    curl -f http://backend-auth:8083/auth/login || (echo "Backend health check failed!" && exit 1)
                     '''
                 }
             }
