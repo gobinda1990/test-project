@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_BACKEND = "backend-auth:latest"
         IMAGE_FRONTEND = "frontend:latest"
-        COMPOSE_FILE_APPS = "docker-compose.apps.yml"
+        COMPOSE_FILE_APPS = "docker-compose.yml"
     }
 
     stages {
