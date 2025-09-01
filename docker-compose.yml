@@ -14,5 +14,5 @@ services:
       - impact-web
 
 networks:
-  impact-wb:
+  impact-web:
     external: true
