@@ -19,7 +19,7 @@ services:
     image: frontend:latest
     container_name: frontend
     ports:
-      - "8084:80"
+      - "80:80"       # <-- Expose container port 80 on host port 80
     depends_on:
       - backend-auth
     networks:
