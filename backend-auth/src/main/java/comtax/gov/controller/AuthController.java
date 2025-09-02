@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://10.153.43.8", allowCredentials = "true")
+@CrossOrigin(origins = "http://10.153.43.8:8084", allowCredentials = "true")
 
 public class AuthController {
 	
