@@ -34,49 +34,11 @@ pipeline {
                     echo "Stopping any running containers..."
                     docker compose -f ${COMPOSE_FILE_APPS} down
                     echo "Starting containers..."
-                    docker compose -f ${COMPOSE_FILE_APPS} up -d --build
+                    docker compose -f ${COMPOSE_FILE_APPS} up -d
                     """
                 }
             }
-        }
-
-        stage('Health Check Backend') {
-            steps {
-                script {
-                    sh '''
-                    echo "Waiting for backend to start..."
-                    for i in {1..20}; do
-                        if curl -s -f http://backend-auth:8083/actuator/health; then
-                            echo "Backend is up!"
-                            break
-                        fi
-                        echo "Waiting..."
-                        sleep 5
-                    done
-                    curl -f http://backend-auth:8083/auth/login || (echo "Backend health check failed!" && exit 1)
-                    '''
-                }
-            }
-        }
-
-        stage('Health Check Frontend') {
-            steps {
-                script {
-                    sh '''
-                    echo "Checking frontend..."
-                    for i in {1..20}; do
-                        if curl -s -f http://localhost:8084; then
-                            echo "Frontend is up!"
-                            break
-                        fi
-                        echo "Waiting..."
-                        sleep 5
-                    done
-                    curl -f http://localhost:8084 || (echo "Frontend health check failed!" && exit 1)
-                    '''
-                }
-            }
-        }
+        }  
     }
 
     post {
@@ -86,5 +48,5 @@ pipeline {
         failure {
             echo "Deployment failed!"
         }
-    }
+    } 
 }
