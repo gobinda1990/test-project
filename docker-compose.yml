@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   backend-auth:
-    build: ./backend-auth
+    image: backend-auth:latest
     container_name: backend-auth
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://10.153.45.169:5432/gst_db
@@ -16,7 +16,7 @@ services:
       - impact-web
 
   frontend:
-    build: ./frontend
+    image: frontend:latest
     container_name: frontend
     ports:
       - "8084:80"
