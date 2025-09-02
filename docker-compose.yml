@@ -10,16 +10,12 @@ services:
       SPRING_DATASOURCE_PASSWORD: stage123
       SERVER_PORT: 8083
       SERVER_SERVLET_CONTEXT_PATH: /api
-    ports:
-      - "8083:8083"
     networks:
       - impact-web
 
   frontend:
     image: frontend:latest
     container_name: frontend
-    ports:
-      - "80:80"       # <-- Expose container port 80 on host port 80
     depends_on:
       - backend-auth
     networks:
